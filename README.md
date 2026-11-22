@@ -186,6 +186,19 @@ code, not a rewrite, and the tests run it on the server's own results and on rea
 | [`market/`](market) | JavaScript | A token page's market figures: which pools belong to the token, which one sets the price, market cap kept apart from FDV, N/A instead of $0 |
 | [`bot/`](bot) | Python | Every message the bot sends about a token, Shield's rule, and the bot's own pump.fun curve reader |
 
+### Scan any token yourself
+
+This fork adds [`scanner/`](scanner), the part that reads a token from the chain: the top holders, how each
+one got in, and the links between them. It then runs the open rules on the result. You need Node 18+ and a
+free Solana RPC key (from [helius.dev](https://www.helius.dev), for example):
+
+```bash
+export SOLANA_RPC_URL="https://mainnet.helius-rpc.com/?api-key=YOUR_KEY"
+npm run scan -- <token address>
+```
+
+Step by step, with how to read the result: [`scanner/README.md`](scanner/README.md).
+
 ### Check the score yourself
 
 ```bash
@@ -230,6 +243,7 @@ the line is.
 | [`chain/`](chain) | The pump.fun and Solana reader |
 | [`market/`](market) | The token page's market figures |
 | [`bot/`](bot) | The bot's messages, Shield and curve reader, with their tests |
+| [`scanner/`](scanner) | Added in this fork: reads a token from the chain and runs the rules on it (`npm run scan`) |
 | [`examples/`](examples) | Scan inputs with the verdict each must get: the site's example token, scans the server made, one file per rule |
 | [`test/`](test) | `npm test`: every rule at its edges, the examples against the server's results, the chain reader on real addresses, the market figures on real market data |
 | [`docs/`](docs) | How QuantumOrb fits together, the score rule by rule, Guard and Shield |

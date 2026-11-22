@@ -2,7 +2,7 @@
   "name": "quantumorb-rules",
   "version": "1.0.0",
   "private": true,
-  "description": "QuantumOrb's open code: the rules behind every verdict, the pump.fun chain reader and the token-page market figures (JavaScript), and the Telegram bot's messages, Shield and chain reader (Python), with tests.",
+  "description": "QuantumOrb's open code: the rules behind every verdict, the pump.fun chain reader and the token-page market figures (JavaScript), and the Telegram bot's messages, Shield and chain reader (Python), with tests, plus a scanner that reads any token from the chain and runs the rules on it.",
   "main": "rules/index.js",
   "license": "SEE LICENSE IN LICENSE",
   "engines": {
@@ -11,6 +11,7 @@
   "scripts": {
     "test": "node --test",
     "test:bot": "python3 -m unittest discover -s bot/tests",
-    "verdict": "node rules/cli.js"
+    "verdict": "node rules/cli.js",
+    "scan": "node scanner/cli.js"
   }
 }
